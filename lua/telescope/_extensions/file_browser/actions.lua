@@ -480,6 +480,8 @@ fb_actions.copy = function(prompt_bufnr)
         end
         index = index + 1
         copy_selections()
+        current_picker:refresh(current_picker.finder, { reset_prompt = true })
+        fb_utils.selection_callback(current_picker, last_copied)
       end)
     else
       if not vim.tbl_isempty(copied) then
